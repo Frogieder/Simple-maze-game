@@ -13,22 +13,17 @@ class Maze():
     def generate(self):
         
         def UnvisitedNeighbours(cell):
-            print("cell", cell)
             neighbours = []
             if cell[0] + 2 < self.size["x"]:
-                print(cell[0], cell[1])
                 if maze[cell[0] + 2][cell[1]]:
                     neighbours.append("r")
             if cell[0] - 2 >= 0:
-                print(cell[0], cell[1])
                 if maze[cell[0] - 2][cell[1]]:
                     neighbours.append("l")
             if cell[1] + 2 < self.size["y"]:
-                print(cell[0], cell[1])
                 if maze[cell[0]][cell[1] + 2]:
                     neighbours.append("u")
             if cell[1] - 2 >= 0:
-                print(cell[0], cell[1])
                 if maze[cell[0]][cell[1] - 2]:
                     neighbours.append("d")
             return neighbours
@@ -53,7 +48,6 @@ class Maze():
                 stack.append(current_cell)
                 # Choose one of the unvisited neighbours
                 direction = choice(neighbours)
-                print(direction)
                 # Remove the wall between the current cell and the chosen cell
                 if direction == "u":
                     maze[current_cell[0]][current_cell[1] + 1] = False
